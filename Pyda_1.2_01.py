@@ -14,3 +14,15 @@ geo_logs = [
     {'visit9': ['Курск', 'Россия']},
     {'visit10': ['Архангельск', 'Россия']}
 ]
+
+# данный список представляет собой: список со словарями, в которых значения - тоже список
+geo_logs_new = []
+# Шаг 1. Обращаемся к каждому элементу в списке - словарю
+for dict_element in geo_logs:
+# Шаг 2. Получаем значения (список) в словаре
+    for list_element in dict_element:
+        geo_logs_dict_list = dict_element.get(list_element, 'Not Found')
+# Шаг 3. Если в значениях есть элемент "Россия", то добавляем в новый список
+        if geo_logs_dict_list[1] == 'Россия':
+            geo_logs_new.append(dict_element)
+geo_logs_new
